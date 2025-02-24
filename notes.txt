@@ -1,0 +1,21 @@
+1.
+
+Parse file
+could potentially use ai to determine which parts are grammar structures which can be sent to bunpro
+
+anki connect -
+get corresponding definition from some japanese dictionary - make card
+
+changedeck to create empty deck
+
+
+required ankiconnect operations:
+first check deck with name is not taken already - getDecks
+create deck - changeDeck
+addNote
+
+
+
+
+
+

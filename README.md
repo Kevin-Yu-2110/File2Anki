@@ -1,2 +1,9 @@
 # File2Anki
-A text file to automatically create an Anki deck with the words.
+A tool to extract vocabulary and grammar from a Japanese book and generate Anki/Bunpro decks.
+
+## Features
+- feature 1
+
+## Installation
+Blahblah
+
