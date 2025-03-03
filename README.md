@@ -1,9 +1,14 @@
 # File2Anki
 A tool to extract vocabulary and grammar from a Japanese book and generate Anki/Bunpro decks.
 
-## Features
-- feature 1
+### Initial Requirements
+- python (v3.9.6)
 
-## Installation
-Blahblah
-
+### Install Python Packages
+```
+pip install -r requirements.txt
+```
+### Run File2Anki
+```
+python3 File2Anki [path/to/text_file] [name_of_deck_to_create]
+```
