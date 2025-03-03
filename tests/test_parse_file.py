@@ -1,4 +1,3 @@
-import pytest
 from modules.parse_file import *
 
 def test_basic1_txt_file():

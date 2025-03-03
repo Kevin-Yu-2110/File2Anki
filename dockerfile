@@ -1,6 +1,6 @@
 FROM python:latest
 
-WORKDIR /app
+WORKDIR /File2Anki
 
 COPY requirements.txt ./
 
