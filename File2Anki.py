@@ -1,5 +1,4 @@
 import sys
-import requests
 from modules import parse_file, query_dict
 from modules.anki_invoke import anki_connect_invoke
 import traceback
@@ -12,13 +11,13 @@ def main():
     deck_name = sys.argv[2]
 
     try:
-        deck_names = anki_connect_invoke('deckNames', 6)
+        deck_names = anki_connect_invoke('deckNames')
         if deck_name in deck_names:
             print('Deck already exists. Would you like to overwrite (delete corresponding notes) the deck? Y/N') #TODO: add option to add to existing deck
             while True:
                 user_input = input()
                 if user_input == "Y":
-                    anki_connect_invoke('deleteDecks', 6, {'decks': [deck_name],
+                    anki_connect_invoke('deleteDecks', {'decks': [deck_name],
                                                            'cardsToo': True})
                     break
                 elif user_input == "N":
@@ -26,7 +25,7 @@ def main():
                 else:
                     print('Please enter (Y) or (N)')
 
-        anki_connect_invoke('createDeck', 6, {'deck': deck_name})
+        anki_connect_invoke('createDeck', {'deck': deck_name})
         words = parse_file.parse_txt_file(file_path)
         notes = []
         for word in words:
@@ -40,7 +39,7 @@ def main():
                 },
             })
             print('current word:', kanji, reading, meaning)
-        anki_connect_invoke('addNotes', 6, {'notes': notes})
+        anki_connect_invoke('addNotes', {'notes': notes})
     except Exception as e:
         print(e)
         traceback.print_exc()
