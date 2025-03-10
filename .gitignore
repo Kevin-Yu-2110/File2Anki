@@ -2,3 +2,4 @@
 .vscode
 env
 .pytest_cache
+sample_input

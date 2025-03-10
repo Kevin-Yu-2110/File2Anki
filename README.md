@@ -8,6 +8,11 @@ A tool to extract vocabulary and grammar from a Japanese book and generate Anki/
 ```
 pip install -r requirements.txt
 ```
+## Setup database
+```
+python3 JMdict/jmdict_setup.py
+```
+
 ### Run File2Anki
 ```
 python3 File2Anki [path/to/text_file] [name_of_deck_to_create]

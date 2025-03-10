@@ -29,7 +29,11 @@ def main():
         words = parse_file.parse_txt_file(file_path)
         notes = []
         for word in words:
-            (kanji, reading, meaning) = query_dict.JMdict_query(word)
+            result = query_dict.JMdict_query(word)
+            if result is None:
+                print(f"Word {word} not found in JMdict")
+                continue
+            (kanji, reading, meaning) = result
             notes.append({
                 'deckName': deck_name,
                 'modelName': 'Basic',
