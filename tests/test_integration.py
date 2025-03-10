@@ -17,3 +17,14 @@ def test_simple(): #TODO; setup automatic delete deck after test
     assert notes[2]['fields']['Front']['value'] == '食べる'
     assert notes[2]['fields']['Back']['value'] == 'Meaning: to eat; to live on (e.g. a salary); to live off; to subsist on, Reading: たべる'
     anki_connect_invoke('deleteDecks', {'decks': ['testdeck'], 'cardsToo': True})
+
+def test_epub_simple(): #pretty bad test, just tests number of notes, also fails if one of the notes already exists in another deck
+    anki_connect_invoke('deleteDecks', {'decks': ['testdeck'], 'cardsToo': True})
+    exit = subprocess.run(['python3', 'File2Anki.py', 'tests/test_files/sample_japanese.epub', 'testdeck'], capture_output=True)
+    assert exit.returncode == 0
+    res = anki_connect_invoke('deckNames')
+    assert 'testdeck' in res
+    res = anki_connect_invoke('findNotes', {'query': 'deck:testdeck'})
+    notes = anki_connect_invoke('notesInfo', {'notes': res})
+    assert len(notes) == 25
+    anki_connect_invoke('deleteDecks', {'decks': ['testdeck'], 'cardsToo': True})

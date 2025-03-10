@@ -26,7 +26,7 @@ def main():
                     print('Please enter (Y) or (N)')
 
         anki_connect_invoke('createDeck', {'deck': deck_name})
-        words = parse_file.parse_txt_file(file_path)
+        words = parse_file.parse_file(file_path)
         notes = []
         for word in words:
             result = query_dict.JMdict_query(word)
